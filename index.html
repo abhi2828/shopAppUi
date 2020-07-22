@@ -266,17 +266,6 @@ var obj = {}
         var newbuttonSize = sizeOfbtn.split();   
        // console.log(newbuttonSize,'abhay' )
         listItem.Size =this.name;
-        // console.log( listItem )    
-        
-        
-        // final size data  listItem  
-
-
-
-
-
-
-
         $("#"+sizeOfbtn).show("fast").siblings().hide("fast");
         $("button").removeClass("btn-success");               
         $(this).addClass("btn-success");
@@ -311,20 +300,15 @@ var obj = {}
                 //listItem.ProductSize =$(this).val();
                 listItem.ProductName =$("#getValue").val();
             });
-            // console.log(wbst)
-
-            //listItem.ProductSize = (wbst[0]);
-        // console.log( listItem )    
-        
-        });
+            });
 
     // enable disable select option when edit button clicked 
-$( ".SelectboxeditButton" ).click(function() {
-    $( this ).toggleClass( "pulse-icon-unlocked" );
-    $("#inputdata").attr('disabled', !$("#inputdata").attr('disabled'));
-    $('select#getValue').prop('disabled', !$(this).hasClass("pulse-icon-unlocked"));
-    $('select#getValue').prop('disabled', !$(this).hasClass("pulse-icon-unlocked"));
-});
+    $( ".SelectboxeditButton" ).click(function() {
+        $( this ).toggleClass( "pulse-icon-unlocked" );
+        $("#inputdata").attr('disabled', !$("#inputdata").attr('disabled'));
+        $('select#getValue').prop('disabled', !$(this).hasClass("pulse-icon-unlocked"));
+        $('select#getValue').prop('disabled', !$(this).hasClass("pulse-icon-unlocked"));
+    });
 
 
  //*************** [ items select box ]************************
@@ -409,7 +393,7 @@ if(input === ''){
     alert('enter some input')
 }
 else{
-    $('#getValue').append('<option value="WY">' + input +'</option>')
+    $('#getValue').append('<option value=" '+ input + '">' + input +'</option>')
     document.getElementById('id01').style.display='none';
 
 }
