@@ -2,9 +2,6 @@
 <html lang="en">
 <head>
   <style>
-      *{
-        font-family: 'Roboto', sans-serif;
-      }
     header{
         text-align: center;
         height: 10vh;
@@ -31,7 +28,6 @@
     p.heading{
         text-align: center;
         height: 10vh;
-        font-size: 30px;
         border-bottom: 1px solid #ece9e9;
         padding-top: 15px
     }
@@ -64,7 +60,7 @@
 .select2-container {
     width: 100% !important;
 }
-@media (max-width: 716px) {
+@media (max-width: 767px) {
     .container{
         width: 100% !important;
         height: auto;
@@ -80,15 +76,15 @@
 </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <title>demo</title>
 </head>
@@ -114,12 +110,12 @@
             <!-- Start: container-fluid 2 -->
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12 btnSize">
-                        <button type="button" class="btn btn-success mySizeBtn">XS</button>
-                        <button type="button" class="btn btn-light mySizeBtn">S</button>
-                        <button type="button" class="btn btn-light mySizeBtn">M</button>
-                        <button type="button" class="btn btn-light mySizeBtn">L</button>
-                        <button type="button" class="btn btn-light mySizeBtn">XL</button>
+                    <div class="col-md-12 btnSize optionbtn">
+                        <button type="button" class="btn btn-success mySizeBtn" name="XS">XS</button>
+                        <button type="button" class="btn  mySizeBtn" name="S">S</button>
+                        <button type="button" class="btn  mySizeBtn" name="M">M</button>
+                        <button type="button" class="btn  mySizeBtn" name="L">L</button>
+                        <button type="button" class="btn  mySizeBtn" name="XL">XL</button>
                     </div>
                 </div>
                 <div class="row">
@@ -134,20 +130,20 @@
             <div class="container-fluid selectbox" style="padding: 5% 15px;height: auto;">
                 <div class="row">
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-outline-success" style="width: 100%;"> 1 </button> 
+                        <input id="inputdata" type="number" min="0" class="form-control col-xs-1" style="width:100%" disabled="disabled" />
                     </div>
                     <div class="dropDown col-md-7 ">
-                        <select class="getValue" name="state">
+                        <select class="form-control" id="getValue" disabled>
                             <option value="" disabled selected>select</option>
-                            <option value="buddy">Mpillow Linen </option>
-                            <option value="cute">Cute</option>
-                            <option value="buddy1">Buddy1</option>
-                            <option value="cute3">Cute3</option>
-                            <option value="WY">Wyoming</option>
+                            <!-- <option value="buddy">Product1 </option>
+                            <option value="cute">Product2</option>
+                            <option value="buddy1">Product2</option>
+                            <option value="cute3">Product3</option>
+                            <option value="WY">Product4</option> -->
                           </select>
                     </div>
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-light mySizeBtn" style="width: 100%;border: 1px solid;"> Edit </button> 
+                        <button type="button" class="btn SelectboxeditButton mySizeBtn" style="width: 100%;border: 1px solid;"> Edit </button> 
                     </div>
                 </div>
             </div>
@@ -157,20 +153,23 @@
 
             <div class="container-fluid selectbox" style="padding: 5% 15px;height: auto;">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-7 offset-md-2">
                         <select class="js-example-basic-single ddlFruits" name="state" style="width: 100%;">
                             <option value="" disabled selected>select</option>
-                            <option value="buddy">Buddy</option>
-                            <option value="cute">Cute</option>
+                            <!-- <option value="buddy">Buddy</option>
+                            <option value="cute">Cute</option>-[]
                             <option value="buddy1">Buddy1</option>
                             <option value="cute3">Cute3</option>
-                            <option value="WY">Wyoming</option>
+                            <option value="WY">Wyoming</option> -->
                           </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-outline-success" id="Add_item" style="width: 100%;"> Add </button> 
                     </div>
                 </div>
                 <div class="row ShopingList">
-                    <div class="col-md-12 parent" id="parent">
-    
+                    <div class="col-md-10 parent offset-md-2" id="parent" >
+                        <!-- add item here -->
                     </div>
                 </div>
             </div>
@@ -182,13 +181,13 @@
             <div class="container-fluid" style="padding: 15px 0 !important;border-top: 1px solid #ece9e9;">
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" onclick="document.getElementById('id01').style.display='block'" class="btn btn-light mySizeBtn addComponent" style="width: 100%;"> <i class="fa fa-plus-circle" aria-hidden="true"> Add</i> </button>
+                        <button type="button" onclick="document.getElementById('id01').style.display='block'" class="btn  mySizeBtn addComponent" style="width: 100%;"> <i class="fa fa-plus-circle" aria-hidden="true"> Add</i> </button>
                     </div>
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-outline-success" style="width: 100%;"> Update </button> 
+                        <button type="button" class="btn btn-outline-success Update" style="width: 100%;"> Update </button> 
                     </div>
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-light mySizeBtn" style="width: 100%;"> Close </button>
+                        <button type="button" class="btn  mySizeBtn" style="width: 100%;"> Close </button>
                     </div>
                     <div class="col-md-12">                   
                         <div class="w3-container">
@@ -202,12 +201,12 @@
                                       </div>
                                       <div class="w3-container">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <button type="button" class="btn btn-success mySizeBtn">XS</button>
-                                                <button type="button" class="btn btn-light mySizeBtn">S</button>
-                                                <button type="button" class="btn btn-light mySizeBtn">M</button>
-                                                <button type="button" class="btn btn-light mySizeBtn">L</button>
-                                                <button type="button" class="btn btn-light mySizeBtn">XL</button>
+                                            <div class="col-md-12 modalBtn">
+                                                <button type="button" class="btn btn-success mySizeBtn" name="XS">XS</button>
+                                                <button type="button" class="btn  mySizeBtn" name="S">S</button>
+                                                <button type="button" class="btn  mySizeBtn" name="M">M</button>
+                                                <button type="button" class="btn  mySizeBtn" name="L">L</button>
+                                                <button type="button" class="btn  mySizeBtn" name="XL">XL</button>
                                             </div>
                                           </div>
                                       </div>
@@ -229,51 +228,197 @@
     </section> 
 </body>
 <script>
-$(document).ready(function() {
+    var count=1;
+    // {
+//   "size": "XS",
+//   "ProductName": "mpillo linen",
+//   "components": [
+//     {
+//       "qty": 10,
+//       "name": "cute3"
+//     },
+//     {
+//       "qty": 3,
+//       "name": "buddy2"
+//     }
+//   ]
+// }  
+
+var listItem = {}
+var obj = {}
+    //modal button Active class
+    $(document).ready(function(){
+    $('.modalBtn button').click(function () {
+        var sizeOfbtn= this.name;
+        //console.log( sizeOfbtn ,'sizeOfbtn');
+        listItem.Size = (sizebtn[0]);
+        $("#"+sizeOfbtn).show("fast").siblings().hide("fast");
+        $("button").removeClass("btn-success");               
+        $(this).addClass("btn-success");
+        });
+    });
+    // console.log( listItem )
+        // button Active class
+        $(document).ready(function(){
+    $('.optionbtn button').click(function () {
+      
+        var sizeOfbtn= this.name;
+        var newbuttonSize = sizeOfbtn.split();   
+       // console.log(newbuttonSize,'abhay' )
+        listItem.Size =this.name;
+        // console.log( listItem )    
+        
+        
+        // final size data  listItem  
+
+
+
+
+
+
+
+        $("#"+sizeOfbtn).show("fast").siblings().hide("fast");
+        $("button").removeClass("btn-success");               
+        $(this).addClass("btn-success");
+    });
+    });
+
+
+
+
+ //*************** [ component select box ]************************
+ var ItemsArray = ['item0', 'item1', 'item2','item3', 'item4','item5','item6' ]
+
+ $(document).ready(function () {
+      for(var i = 0;i < ItemsArray.length;i++){
+    
+        $('#getValue').append( '<option value="' + ItemsArray[i] + '">' + ItemsArray[i] + '</option>')
+    
+       
+      }
+      $('#getValue').select2();
+    $('#getValue').change(function(){
+   
+    });
+       
+     
+    });
+    $("#getValue").change(function () {
+ 
+            var wbst = [];
+            $.each($("#getValue option:selected"), function () {
+                wbst.push($(this).val());
+                //listItem.ProductSize =$(this).val();
+                listItem.ProductName =$("#getValue").val();
+            });
+            // console.log(wbst)
+
+            //listItem.ProductSize = (wbst[0]);
+        // console.log( listItem )    
+        
+        });
+
+    // enable disable select option when edit button clicked 
+$( ".SelectboxeditButton" ).click(function() {
+    $( this ).toggleClass( "pulse-icon-unlocked" );
+    $("#inputdata").attr('disabled', !$("#inputdata").attr('disabled'));
+    $('select#getValue').prop('disabled', !$(this).hasClass("pulse-icon-unlocked"));
+    $('select#getValue').prop('disabled', !$(this).hasClass("pulse-icon-unlocked"));
+});
+
+
+ //*************** [ items select box ]************************
+
+var ItemsArray = [ 'item1', 'item2','item3', 'item4','item5','item6' ]
+
+
+$().ready(function(){
+
+  for(var i = 0;i < ItemsArray.length;i++){
+    $('.js-example-basic-single').append( '<option value="' + ItemsArray[i] + '">' + ItemsArray[i] + '</option>')
+    }
     $('.js-example-basic-single').select2();
     $('.js-example-basic-single').change(function(){
+
+               
+    });
+  
+});
+$('#Add_item').click(function () {
      var selectedText = $(".ddlFruits").find("option:selected").text();
-     $("#parent").append( '<div class="parent1 row" style="padding:3px 0"> ' + '<input type="text" class="form-control col-xs-1" style="width:12% !important"><div class="col-xs-6" style="line-height: 35px;width: 60% !important;margin-left: 3% !important;"> ' + selectedText  + ' </div> ' + ' <i class="fa fa-times" aria-hidden="true" onclick="removeItem(this)"style="line-height: 35px;"></i> </div>' );
-          var seen = {};
-          $('.parent1').each(function() {
-          var txt = $(this).text(); 
-          console.log( txt)
+
+    var data =  $("#parent").append( '<div class="parent1 row" style="padding:3px 0;width:100%"> ' + '<input id="parentInput'+count+'" type="number" min="0" class="form-control col-xs-1" style="width:12%"><div class="col-xs-6" style="line-height: 35px;width: 70% !important;margin-left: 3% !important;"  id="div_parent_input'+count+'"> ' + selectedText  + ' </div> ' + ' <i class="fa fa-times" aria-hidden="true" onclick="removeItem(this)"style="line-height: 35px;"></i> </div>' );
+    // console.log(data,'test')   
+           var seen = {};
+          $('.parent1').each(function() {                                                  
+          var txt = $(this).text();
           if (seen[txt])
           $(this).remove();
           else
           seen[txt] = true;
+          //console.log(txt,'test')
+          obj['"name"'] = txt;
+          //console.log(obj,'test')
           });
-    });
+          count=count+1;
+        });
+
+// ..............input value...............
+
+$('.Update').click(function () {
+    var component = [];
+    for (var i=1;i<count;i++)
+    {
+        var subcomponent={};
+        subcomponent.qty = $('#parentInput'+i).val();
+        subcomponent.name = $('#div_parent_input'+i).html();
+        component.push(subcomponent);
+
+
+    }
+    listItem.Components=component;
+    console.log(listItem);
+    //select2-state-3x-container
+    //parentInput
+
 });
+
+
+// var a = document.getElementById('parentInput').value;
+     // console.log( a, 'input' )
+      //obj['"qty"'] = a;
+     // console.log( obj, 'obj' )
+// ......................
+
+
 
 function removeItem(span_tag){
 $(".parent1 i").click(function() {
    var a =  $(this).parent().remove();
 });
  }
- //***************************************
 
- $(document).ready(function() {
-    $('.getValue').select2();
-    $('.getValue').change(function(){
-    
-    });
-});
+
 
 
 // ************** Modal ****************
 function fun(){
   var input = document.getElementById('selectOptions').value;
-  console.log(input,'abhay');
+  //console.log(input,'abhay');
 if(input === ''){
     alert('enter some input')
 }
 else{
-    $('.getValue').append('<option value="WY">' + input +'</option>')
+    $('#getValue').append('<option value="WY">' + input +'</option>')
     document.getElementById('id01').style.display='none';
 
 }
     document.getElementById('selectOptions').value = '';
 }
+
+
+
+
 </script> 
+
 </html>
