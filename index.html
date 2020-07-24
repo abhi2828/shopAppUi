@@ -141,12 +141,7 @@
                     </div>
                     <div class="dropDown col-md-7 ">
                         <select class="form-control" id="getValue" disabled>
-                            <option value="select" disabled selected></option>
-                            <!-- <option value="buddy">Product1 </option>
-                            <option value="cute">Product2</option>
-                            <option value="buddy1">Product2</option>
-                            <option value="cute3">Product3</option>
-                            <option value="WY">Product4</option> -->
+                            <option value="select" disabled selected>select</option>
                           </select>
                     </div>
                     <div class="col-md-3">
@@ -162,12 +157,7 @@
                 <div class="row">
                     <div class="col-md-7 offset-md-2">
                         <select class="js-example-basic-single ddlFruits" name="state" style="width: 100%;">
-                            <!-- <option value="" disabled selected>select</option> -->
-                            <!-- <option value="buddy">Buddy</option>
-                            <option value="cute">Cute</option>-[]
-                            <option value="buddy1">Buddy1</option>
-                            <option value="cute3">Cute3</option>
-                            <option value="WY">Wyoming</option> -->
+                            
                           </select>
                     </div>
                     <div class="col-md-3">
@@ -235,22 +225,7 @@
     </section> 
 </body>
 <script>
-    var count=0;
-    // {
-//   "size": "XS",
-//   "ProductName": "mpillo linen",
-//   "components": [
-//     {
-//       "qty": 10,
-//       "name": "cute3"
-//     },
-//     {
-//       "qty": 3,
-//       "name": "buddy2"
-//     }
-//   ]
-// }  
-
+var count=0;
 var listItem = {}
 var obj = {}
     //modal button Active class
@@ -278,11 +253,7 @@ var obj = {}
         $(this).addClass("btn-success");
     });
     });
-
-
-
-
- //*************** [ component select box ]************************
+//*************** [ component select box ]************************
  var ItemsArray = ['item0', 'item1', 'item2','item3', 'item4','item5','item6' ]
 
  $(document).ready(function () {
@@ -383,25 +354,12 @@ $('.Update').click(function () {
 
       
 });
-
-
-// var a = document.getElementById('parentInput').value;
-     // console.log( a, 'input' )
-      //obj['"qty"'] = a;
-     // console.log( obj, 'obj' )
-// ......................
-
-
-
+  
 function removeItem(span_tag){
 $(".parent1 i").click(function() {
    var a =  $(this).parent().remove();
 });
  }
-
-
-
-
 // ************** Modal ****************
 function fun(){
   var input = document.getElementById('selectOptions').value;
@@ -416,10 +374,6 @@ else{
 }
     document.getElementById('selectOptions').value = '';
 }
-
-
-
-
 </script> 
 
 </html>
