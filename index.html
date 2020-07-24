@@ -65,6 +65,13 @@
         width: 100% !important;
         height: auto;
     }
+    .input_nuber{
+        width: 25% !important;
+    }
+    .div_array{
+        width: 65% !important;
+    
+}
 }
 @media (max-width: 358px) {
     .container{
@@ -130,11 +137,11 @@
             <div class="container-fluid selectbox" style="padding: 5% 15px;height: auto;">
                 <div class="row">
                     <div class="col-md-2">
-                        <input id="inputdata" type="number" min="0" class="form-control col-xs-1" style="width:100%" disabled="disabled" />
+                        <input id="inputdata" type="number" min="0" value="1" class="form-control col-xs-1" style="width:100%" disabled="disabled" />
                     </div>
                     <div class="dropDown col-md-7 ">
                         <select class="form-control" id="getValue" disabled>
-                            <option value="" disabled selected>select</option>
+                            <option value="select" disabled selected></option>
                             <!-- <option value="buddy">Product1 </option>
                             <option value="cute">Product2</option>
                             <option value="buddy1">Product2</option>
@@ -155,7 +162,7 @@
                 <div class="row">
                     <div class="col-md-7 offset-md-2">
                         <select class="js-example-basic-single ddlFruits" name="state" style="width: 100%;">
-                            <option value="" disabled selected>select</option>
+                            <!-- <option value="" disabled selected>select</option> -->
                             <!-- <option value="buddy">Buddy</option>
                             <option value="cute">Cute</option>-[]
                             <option value="buddy1">Buddy1</option>
@@ -228,7 +235,7 @@
     </section> 
 </body>
 <script>
-    var count=1;
+    var count=0;
     // {
 //   "size": "XS",
 //   "ProductName": "mpillo linen",
@@ -323,15 +330,16 @@ $().ready(function(){
     }
     $('.js-example-basic-single').select2();
     $('.js-example-basic-single').change(function(){
-
-               
-    });
-  
+     });
+    //  
+     
 });
 $('#Add_item').click(function () {
-     var selectedText = $(".ddlFruits").find("option:selected").text();
+     var selectedText = $(".js-example-basic-single").find("option:selected").text();
+    // debugger;
+    console.log(selectedText,'selectedText')
 
-    var data =  $("#parent").append( '<div class="parent1 row" style="padding:3px 0;width:100%"> ' + '<input id="parentInput'+count+'" type="number" min="0" class="form-control col-xs-1" style="width:12%"><div class="col-xs-6" style="line-height: 35px;width: 70% !important;margin-left: 3% !important;"  id="div_parent_input'+count+'"> ' + selectedText  + ' </div> ' + ' <i class="fa fa-times" aria-hidden="true" onclick="removeItem(this)"style="line-height: 35px;"></i> </div>' );
+        var data =  $("#parent").append( '<div class="parent1 row" style="padding:3px 0;width:100%"> ' + '<input class="input_nuber" id="parentInput'+count+'" type="number" min="0" value="1" class="form-control col-xs-1" style="width:20%"><div class="col-xs-6 div_array" style="line-height: 35px;width: 68%;margin-left: 3% !important;"  id="div_parent_input'+count+'"> ' + selectedText  + ' </div> ' + ' <i class="fa fa-times" aria-hidden="true" onclick="removeItem(this)"style="line-height: 35px;"></i> </div>' );
     // console.log(data,'test')   
            var seen = {};
           $('.parent1').each(function() {                                                  
@@ -345,26 +353,35 @@ $('#Add_item').click(function () {
           //console.log(obj,'test')
           });
           count=count+1;
-        });
+    
+});
 
 // ..............input value...............
 
 $('.Update').click(function () {
+    // debugger;
     var component = [];
-    for (var i=1;i<count;i++)
+    for (var i=0;i<=count;i++)
     {
         var subcomponent={};
         subcomponent.qty = $('#parentInput'+i).val();
+        // console.log(subcomponent.qty ,'test1');
         subcomponent.name = $('#div_parent_input'+i).html();
-        component.push(subcomponent);
-
-
+        var a =subcomponent.qty;
+        var b =subcomponent.name;
+        if(a === undefined ||a === "" ||b === undefined ||b ==="" ||b === 'select')
+        {
+            
+        }
+        else
+        {
+            component.push(subcomponent);
+        }
     }
     listItem.Components=component;
-    console.log(listItem);
-    //select2-state-3x-container
-    //parentInput
+    console.log( listItem, 'input2' )
 
+      
 });
 
 
