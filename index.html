@@ -142,6 +142,7 @@
                     <div class="dropDown col-md-7 ">
                         <select class="form-control" id="getValue" disabled>
                             <option value="select" disabled selected>select</option>
+
                           </select>
                     </div>
                     <div class="col-md-3">
@@ -157,7 +158,7 @@
                 <div class="row">
                     <div class="col-md-7 offset-md-2">
                         <select class="js-example-basic-single ddlFruits" name="state" style="width: 100%;">
-                            
+                            <option value="" disabled selected>select</option>
                           </select>
                     </div>
                     <div class="col-md-3">
@@ -199,11 +200,11 @@
                                       <div class="w3-container">
                                         <div class="row">
                                             <div class="col-md-12 modalBtn">
-                                                <button type="button" class="btn btn-success mySizeBtn" name="XS">XS</button>
-                                                <button type="button" class="btn  mySizeBtn" name="S">S</button>
-                                                <button type="button" class="btn  mySizeBtn" name="M">M</button>
-                                                <button type="button" class="btn  mySizeBtn" name="L">L</button>
-                                                <button type="button" class="btn  mySizeBtn" name="XL">XL</button>
+                                                <button id="modal_btn" type="button" class="btn btn-success mySizeBtn" name="XS">XS</button>
+                                                <button id="modal_btn" type="button" class="btn  mySizeBtn" name="S">S</button>
+                                                <button id="modal_btn" type="button" class="btn  mySizeBtn" name="M">M</button>
+                                                <button id="modal_btn" type="button" class="btn  mySizeBtn" name="L">L</button>
+                                                <button id="modal_btn" type="button" class="btn  mySizeBtn" name="XL">XL</button>
                                             </div>
                                           </div>
                                       </div>
@@ -225,7 +226,22 @@
     </section> 
 </body>
 <script>
-var count=0;
+    var count=0;
+    // {
+//   "size": "XS",
+//   "ProductName": "mpillo linen",
+//   "components": [
+//     {
+//       "qty": 10,
+//       "name": "cute3"
+//     },
+//     {
+//       "qty": 3,
+//       "name": "buddy2"
+//     }
+//   ]
+// }  
+
 var listItem = {}
 var obj = {}
     //modal button Active class
@@ -233,7 +249,7 @@ var obj = {}
     $('.modalBtn button').click(function () {
         var sizeOfbtn= this.name;
         //console.log( sizeOfbtn ,'sizeOfbtn');
-        listItem.Size = (sizebtn[0]);
+        listItem.Size = (sizeOfbtn);
         $("#"+sizeOfbtn).show("fast").siblings().hide("fast");
         $("button").removeClass("btn-success");               
         $(this).addClass("btn-success");
@@ -241,7 +257,7 @@ var obj = {}
     });
     // console.log( listItem )
         // button Active class
-        $(document).ready(function(){
+     
     $('.optionbtn button').click(function () {
       
         var sizeOfbtn= this.name;
@@ -252,8 +268,25 @@ var obj = {}
         $("button").removeClass("btn-success");               
         $(this).addClass("btn-success");
     });
-    });
-//*************** [ component select box ]************************
+ 
+//  modal active buttons
+
+$('#modal_btn').click(function () {
+      
+      var sizeOfbtn= this.name;
+      var newbuttonSize = sizeOfbtn.split();   
+     // console.log(newbuttonSize,'abhay' )
+      listItem.Size =this.name;
+      $("#"+sizeOfbtn).show("fast").siblings().hide("fast");
+      $("#modal_btn").removeClass("btn-success");               
+      $(this).addClass("btn-success");
+  });
+
+
+
+
+
+ //*************** [ component select box ]************************
  var ItemsArray = ['item0', 'item1', 'item2','item3', 'item4','item5','item6' ]
 
  $(document).ready(function () {
@@ -354,12 +387,17 @@ $('.Update').click(function () {
 
       
 });
-  
+
+
 function removeItem(span_tag){
 $(".parent1 i").click(function() {
    var a =  $(this).parent().remove();
 });
  }
+
+
+
+
 // ************** Modal ****************
 function fun(){
   var input = document.getElementById('selectOptions').value;
@@ -374,6 +412,10 @@ else{
 }
     document.getElementById('selectOptions').value = '';
 }
+
+
+
+
 </script> 
 
 </html>
